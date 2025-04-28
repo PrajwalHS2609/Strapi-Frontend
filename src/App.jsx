@@ -12,10 +12,17 @@ function App() {
   // const API_BASE_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
+    const apiToken = process.env.API_TOKEN;
+
     const fetchBlogs = async () => {
       try {
         const res = await axios.get(
-          `https://strapi-backend-f2jr.onrender.com/api/blogs?populate=*`
+          `https://strapi-backend-f2jr.onrender.com/api/blogs?populate=*`,
+          {
+            headers: {
+              'Authorization': `Bearer ${apiToken}`, // Replace YOUR_API_KEY with the actual API key
+            },
+          }
         );
         const formattedBlogs = res.data.data.map((item) => ({
           id: item.id,

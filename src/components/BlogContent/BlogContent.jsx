@@ -15,11 +15,18 @@ const BlogContent = () => {
 
   // Fetch blog data from the API when the component mounts or when blogLink changes
   useEffect(() => {
+    const apiToken = process.env.API_TOKEN;
+
     const fetchBlog = async () => {
       try {
         // Make a GET request to fetch the blog by blogLink
         const res = await axios.get(
-         `https://strapi-backend-f2jr.onrender.com/api/blogs?filters[BlogLink][$eq]=${blogLink}&populate=*`
+          `https://strapi-backend-f2jr.onrender.com/api/blogs?filters[BlogLink][$eq]=${blogLink}&populate=*`,
+          {
+            headers: {
+              Authorization: `Bearer ${apiToken}`, // Replace YOUR_API_KEY with the actual API key
+            },
+          }
         );
 
         const data = res.data.data; // Get the data array
@@ -48,7 +55,9 @@ const BlogContent = () => {
   const { BlogTitle, BlogImg, BlogContent } = blog;
 
   // Get the image URL from BlogImg, if it exists
-  const imgUrl = BlogImg?.url ? `https://strapi-backend-f2jr.onrender.com${BlogImg.url}` : null;
+  const imgUrl = BlogImg?.url
+    ? `https://strapi-backend-f2jr.onrender.com${BlogImg.url}`
+    : null;
 
   return (
     <div className="blogContent-container">
@@ -63,9 +72,8 @@ const BlogContent = () => {
       <div className="blogContent-wrapper">
         <Markdown>{BlogContent}</Markdown>
       </div>
-
     </div>
   );
 };
 
-export default BlogContent; 
+export default BlogContent;
