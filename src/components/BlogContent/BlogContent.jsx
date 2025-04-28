@@ -15,7 +15,6 @@ const BlogContent = () => {
 
   // Fetch blog data from the API when the component mounts or when blogLink changes
   useEffect(() => {
-    const apiToken = process.env.API_TOKEN;
 
     const fetchBlog = async () => {
       try {
@@ -24,7 +23,7 @@ const BlogContent = () => {
           `https://strapi-backend-f2jr.onrender.com/api/blogs?filters[BlogLink][$eq]=${blogLink}&populate=*`,
           {
             headers: {
-              Authorization: `Bearer ${apiToken}`, // Replace YOUR_API_KEY with the actual API key
+              Authorization: `Bearer  ${process.env.API_TOKEN}`, // Replace YOUR_API_KEY with the actual API key
             },
           }
         );
