@@ -5,7 +5,7 @@ import axios from "axios";
 
 const BlogCard = () => {
   const [blogs, setBlogs] = useState([]);
-  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  // const API_BASE_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -28,7 +28,7 @@ const BlogCard = () => {
     };
 
     fetchBlogs();
-  }, [API_BASE_URL]);
+  }, []);
 
   return (
     <div className="blogCard-container">

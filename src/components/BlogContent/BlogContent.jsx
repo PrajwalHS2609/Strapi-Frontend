@@ -11,7 +11,7 @@ const BlogContent = () => {
   // State to hold the blog data and a flag for 'not found' status
   const [blog, setBlog] = useState(null);
   const [notFound, setNotFound] = useState(false);
-  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  // const API_BASE_URL = process.env.REACT_APP_API_URL;
 
   // Fetch blog data from the API when the component mounts or when blogLink changes
   useEffect(() => {
@@ -36,7 +36,7 @@ const BlogContent = () => {
     };
 
     fetchBlog();
-  }, [blogLink,API_BASE_URL]); // Re-run the effect when the blogLink changes
+  }, [blogLink]); // Re-run the effect when the blogLink changes
 
   // Show loading state while the blog data is being fetched
   if (!blog && !notFound) return <p>Loading...</p>;

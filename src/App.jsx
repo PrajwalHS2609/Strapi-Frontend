@@ -9,13 +9,13 @@ import HomePage from "./components/HomePage/HomePage";
 
 function App() {
   const [blogs, setBlogs] = useState([]);
-  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  // const API_BASE_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const res = await axios.get(
-          `${API_BASE_URL}/api/blogs?populate=*`
+          `https://strapi-backend-f2jr.onrender.com/api/blogs?populate=*`
         );
         const formattedBlogs = res.data.data.map((item) => ({
           id: item.id,
@@ -28,7 +28,7 @@ function App() {
     };
 
     fetchBlogs();
-  }, [API_BASE_URL]);
+  }, []);
 
 
   return (
