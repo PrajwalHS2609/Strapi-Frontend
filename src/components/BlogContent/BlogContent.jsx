@@ -19,7 +19,7 @@ const BlogContent = () => {
       try {
         // Make a GET request to fetch the blog by blogLink
         const res = await axios.get(
-         `http://localhost:1337/api/blogs?filters[BlogLink][$eq]=${blogLink}&populate=*`
+         `https://strapi-backend-f2jr.onrender.com/api/blogs?filters[BlogLink][$eq]=${blogLink}&populate=*`
         );
 
         const data = res.data.data; // Get the data array
@@ -48,7 +48,7 @@ const BlogContent = () => {
   const { BlogTitle, BlogImg, BlogContent } = blog;
 
   // Get the image URL from BlogImg, if it exists
-  const imgUrl = BlogImg?.url ? `http://localhost:1337${BlogImg.url}` : null;
+  const imgUrl = BlogImg?.url ? `https://strapi-backend-f2jr.onrender.com${BlogImg.url}` : null;
 
   return (
     <div className="blogContent-container">

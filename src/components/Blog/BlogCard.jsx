@@ -10,14 +10,14 @@ const BlogCard = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get(`http://localhost:1337/api/blogs?populate=*`);
+        const res = await axios.get(`https://strapi-backend-f2jr.onrender.com/api/blogs?populate=*`);
         console.log("Raw Blog Data:", res.data.data); // optional for debugging
 
         const formattedBlogs = res.data.data.map((item) => ({
           id: item.id,
           title: item.BlogTitle,
           desp: item.BlogDesp,
-          img: `http://localhost:1337` + item.BlogImg?.url,
+          img: `https://strapi-backend-f2jr.onrender.com` + item.BlogImg?.url,
           link: item.BlogLink,
         }));
 
