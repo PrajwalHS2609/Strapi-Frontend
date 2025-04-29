@@ -19,7 +19,6 @@ const BlogCard = () => {
             },
           }
         );
-        console.log("Token used:", process.env.REACT_APP_API_TOKEN);
         console.log("Raw Blog Data:", res.data.data); // optional for debugging
 
         const formattedBlogs = res.data.data.map((item) => ({
@@ -33,6 +32,8 @@ const BlogCard = () => {
         setBlogs(formattedBlogs);
       } catch (err) {
         console.error("Error fetching blogs:", err);
+        console.log("Token used:", process.env.REACT_APP_API_TOKEN);
+
       }
     };
 
