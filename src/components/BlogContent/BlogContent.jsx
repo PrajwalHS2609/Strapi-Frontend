@@ -23,7 +23,7 @@ const BlogContent = () => {
           `https://strapi-backend-f2jr.onrender.com/api/blogs?filters[BlogLink][$eq]=${blogLink}&populate=*`,
           {
             headers: {
-              Authorization: `Bearer  ${process.env.API_TOKEN}`, // Replace YOUR_API_KEY with the actual API key
+              Authorization: `Bearer ${process.env.API_TOKEN}`, // Replace YOUR_API_KEY with the actual API key
             },
           }
         );
