@@ -17,7 +17,7 @@ function App() {
           `https://strapi-backend-f2jr.onrender.com/api/blogs?populate=*`,
           {
             headers: {
-              Authorization: `Bearer ${process.env.API_TOKEN}`,
+              Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`,
             },
           }
         );
